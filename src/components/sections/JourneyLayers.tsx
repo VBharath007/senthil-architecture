@@ -53,7 +53,7 @@ export function JourneyLayers() {
   const H = 80; // Height (Z-axis) - thinner glass layers matching image
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-[140vh] bg-[#020504] py-32 overflow-hidden flex items-center">
+    <section ref={sectionRef} className="relative w-full min-h-[140vh] bg-ink-50 dark:bg-[#020504] py-32 overflow-hidden flex items-center transition-colors duration-500">
 
       {/* High-Tech Isometric Background Grid */}
       <div className="absolute inset-0 pointer-events-none">
@@ -67,7 +67,7 @@ export function JourneyLayers() {
           }}
         />
         {/* Radial vignette to fade out the grid edges */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020504_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#f8faf9_70%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,#020504_70%)] transition-colors duration-500" />
       </div>
 
       <Container className="relative z-10 w-full h-full">
@@ -76,15 +76,15 @@ export function JourneyLayers() {
           {/* Intro Text - Absolute positioned exactly matching reference */}
           <div className="absolute top-10 left-4 md:left-10 z-50 max-w-md pointer-events-none">
             <FadeIn>
-              <div className="flex items-center gap-3 text-[#00E599] font-mono tracking-widest text-xs md:text-sm mb-6">
-                <div className="w-10 h-px bg-[#00E599]" />
+              <div className="flex items-center gap-3 text-brand-600 dark:text-[#00E599] font-mono tracking-widest text-xs md:text-sm mb-6">
+                <div className="w-10 h-px bg-brand-600 dark:bg-[#00E599]" />
                 <span className="font-bold">01 / ABOUT • OUR VISION</span>
               </div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.1] tracking-tight">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-ink-950 dark:text-white mb-6 leading-[1.1] tracking-tight">
                 A JOURNEY <br />
-                <span className="text-[#00E599] font-light italic">IN LAYERS.</span>
+                <span className="text-brand-600 dark:text-[#00E599] font-light italic">IN LAYERS.</span>
               </h2>
-              <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-sm font-light">
+              <p className="text-ink-700 dark:text-white/70 text-sm md:text-base leading-relaxed max-w-sm font-light">
                 Each phase has added depth to our thinking, shaping the way we design, build and create.
               </p>
             </FadeIn>
@@ -147,7 +147,7 @@ export function JourneyLayers() {
                           src={layer.image}
                           alt={layer.title}
                           fill
-                          className="object-cover mix-blend-screen transition-all duration-700 -rotate-45 scale-[1.45] opacity-40 group-hover:scale-[1.55] group-hover:opacity-100"
+                          className="object-cover dark:mix-blend-screen mix-blend-multiply transition-all duration-700 -rotate-45 scale-[1.45] opacity-20 dark:opacity-40 group-hover:scale-[1.55] group-hover:opacity-60 dark:group-hover:opacity-100"
                         />
                         {/* High-tech dots overlay */}
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,153,0.4)_1px,transparent_1px)] bg-[size:12px_12px] opacity-20 pointer-events-none mix-blend-overlay" />
@@ -198,21 +198,21 @@ export function JourneyLayers() {
                         {/* Text Block Exact Replica */}
                         <div className="flex flex-col">
                           <div className="flex items-center gap-4 mb-2 transition-transform duration-700 group-hover:translate-x-[10px]">
-                            <span className="font-mono font-bold text-xl tracking-wider transition-colors duration-700 text-[#00E599] group-hover:text-white group-hover:drop-shadow-[0_0_8px_#00E599]">
+                            <span className="font-mono font-bold text-xl tracking-wider transition-colors duration-700 text-brand-600 dark:text-[#00E599] group-hover:text-ink-950 dark:group-hover:text-white dark:group-hover:drop-shadow-[0_0_8px_#00E599]">
                               {layer.step}
                             </span>
-                            <h3 className="font-serif text-2xl md:text-3xl transition-colors duration-700 text-white group-hover:text-[#00E599]">
+                            <h3 className="font-serif text-2xl md:text-3xl transition-colors duration-700 text-ink-950 dark:text-white group-hover:text-brand-600 dark:group-hover:text-[#00E599]">
                               {layer.title}
                             </h3>
                           </div>
 
-                          <p className="text-white/80 text-xs md:text-sm leading-relaxed max-w-[280px] mb-4">
+                          <p className="text-ink-700 dark:text-white/80 text-xs md:text-sm leading-relaxed max-w-[280px] mb-4">
                             {layer.description}
                           </p>
 
                           <div className="flex flex-col gap-1.5">
                             {layer.details.map((detail, idx) => (
-                              <span key={idx} className="text-[9px] md:text-[10px] text-white/40 font-mono tracking-widest uppercase">
+                              <span key={idx} className="text-[9px] md:text-[10px] text-ink-500 dark:text-white/40 font-mono tracking-widest uppercase">
                                 {detail}
                               </span>
                             ))}

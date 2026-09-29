@@ -110,16 +110,16 @@ export default function ServicesPage() {
         </section>
 
         {/* Pinned Process Timeline */}
-        <section className="py-32 bg-ink-950 relative overflow-hidden" ref={timelineRef}>
+        <section className="py-32 bg-ink-50 dark:bg-ink-950 relative overflow-hidden transition-colors duration-500" ref={timelineRef}>
           {/* Subtle background glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full bg-brand-500/5 blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full bg-brand-500/10 dark:bg-brand-500/5 blur-[120px] pointer-events-none" />
 
           <Container>
             <Reveal>
-              <h2 className="text-4xl sm:text-5xl font-medium text-white mb-6 text-center">
+              <h2 className="text-4xl sm:text-5xl font-medium text-ink-950 dark:text-white mb-6 text-center transition-colors">
                 Our Process
               </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto text-center mb-24">
+              <p className="text-lg text-ink-700 dark:text-white/60 max-w-2xl mx-auto text-center mb-24 transition-colors">
                 A seamless journey from initial concept to the final handover.
               </p>
             </Reveal>
@@ -127,7 +127,7 @@ export default function ServicesPage() {
             <div className="relative max-w-5xl mx-auto pb-24">
               
               {/* === ENHANCED PROGRESS INDICATOR === */}
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/10 z-0" />
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-ink-900/10 dark:bg-white/10 z-0 transition-colors" />
               
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] z-10 pointer-events-none">
                 {/* The main filled progress line */}
@@ -168,7 +168,7 @@ export default function ServicesPage() {
                       
                       {/* Center Node / Dot */}
                       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center w-12 h-12 z-30">
-                        <div className="w-4 h-4 rounded-full border-2 border-brand-500 bg-ink-950 flex items-center justify-center transition-all duration-500 group-hover:scale-125 group-hover:bg-brand-500 group-hover:shadow-[0_0_15px_rgba(0,229,153,0.5)]" />
+                        <div className="w-4 h-4 rounded-full border-2 border-brand-500 bg-ink-50 dark:bg-ink-950 flex items-center justify-center transition-all duration-500 group-hover:scale-125 group-hover:bg-brand-500 group-hover:shadow-[0_0_15px_rgba(0,229,153,0.5)]" />
                       </div>
 
                       {/* Content Card */}
@@ -179,12 +179,12 @@ export default function ServicesPage() {
                         viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
                         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1.0] }}
                       >
-                        <div className="bg-ink-900/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-brand-500/30 transition-colors duration-500 hover:bg-ink-900/60 shadow-xl group-hover:-translate-y-1 transform">
+                        <div className="bg-white dark:bg-ink-900/40 backdrop-blur-sm border border-ink-900/5 dark:border-white/10 rounded-2xl p-8 hover:border-brand-500/30 transition-colors duration-500 hover:bg-ink-50 dark:hover:bg-ink-900/60 shadow-sm dark:shadow-xl group-hover:-translate-y-1 transform">
                           <span className="inline-block text-brand-500 font-mono font-bold text-lg mb-3 bg-brand-500/10 px-3 py-1 rounded-md">
                             STEP {step.step}
                           </span>
-                          <h3 className="text-2xl font-medium text-white mb-4">{step.title}</h3>
-                          <p className="text-white/60 leading-relaxed">{step.description}</p>
+                          <h3 className="text-2xl font-medium text-ink-950 dark:text-white mb-4 transition-colors">{step.title}</h3>
+                          <p className="text-ink-700 dark:text-white/60 leading-relaxed transition-colors">{step.description}</p>
                         </div>
                       </motion.div>
                       
@@ -198,14 +198,14 @@ export default function ServicesPage() {
         </section>
 
         {/* Why Choose Us Strip */}
-        <section className="py-24 bg-ink-900 text-white">
+        <section className="py-24 bg-ink-100 dark:bg-ink-900 text-ink-950 dark:text-white transition-colors duration-500">
           <Container>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {STATS.map((stat, idx) => (
                 <Reveal key={stat.label} delay={idx * 0.1}>
-                  <div className="flex flex-col border-l border-white/20 pl-6 h-full justify-center">
+                  <div className="flex flex-col border-l border-ink-900/20 dark:border-white/20 pl-6 h-full justify-center transition-colors">
                     <span className="text-4xl md:text-5xl font-serif text-brand-500 mb-2">{stat.value}</span>
-                    <span className="text-sm text-white/70 uppercase tracking-widest leading-relaxed">{stat.label}</span>
+                    <span className="text-sm text-ink-700 dark:text-white/70 uppercase tracking-widest leading-relaxed transition-colors">{stat.label}</span>
                   </div>
                 </Reveal>
               ))}
