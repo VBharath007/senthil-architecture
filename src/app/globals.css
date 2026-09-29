@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-white text-ink-900 antialiased dark:bg-ink-950 dark:text-white;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  @apply bg-brand-500/40 text-inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-brand-700/40;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-600/70;
+}
+
+/* Hide scrollbars on UI elements */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+:focus-visible {
+  outline: 2px solid theme("colors.brand.400");
+  outline-offset: 2px;
+}
+
+/* Liquid Glass Effect Styles */
+.liquid-glass-card {
+  @apply relative overflow-hidden bg-white/70 backdrop-blur-3xl backdrop-saturate-[1.8] border border-white/60 shadow-[0_8px_32px_0_rgba(0,0,0,0.06),inset_0_1px_1px_0_rgba(255,255,255,0.8)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_20px_45px_-10px_rgba(0,0,0,0.1),inset_0_1px_1px_0_rgba(255,255,255,0.9)] dark:bg-black/30 dark:border-white/10 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37),inset_0_1px_1px_0_rgba(255,255,255,0.12)] dark:hover:shadow-[0_20px_45px_-10px_rgba(0,0,0,0.6),inset_0_1px_1px_0_rgba(255,255,255,0.2)];
+}
+
+.liquid-sheen-sweep {
+  @apply pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent dark:via-white/[0.08] opacity-0 transition-opacity duration-700 ease-out;
+}
+.liquid-glass-card:hover .liquid-sheen-sweep {
+  @apply opacity-100;
+  transform: translateX(100%);
+  transition: transform 1s ease-out, opacity 0.3s ease;
+}
+
+.liquid-glass-bevel {
+  @apply pointer-events-none absolute inset-x-0 top-0 h-24 rounded-t-3xl bg-gradient-to-b from-white/50 to-transparent dark:from-white/10 opacity-70;
+}

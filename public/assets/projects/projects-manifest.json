@@ -1,0 +1,219 @@
+{
+  "note": "Source: client brochure SENTHIL_ASSOCIATES.pdf. Only the fields present in the brochure are included; do not invent other data. Image \"design-render\" = 3D render, \"built\" = photo of completed building.",
+  "projects": [
+    {
+      "slug": "ar-senthil-residence",
+      "title": "Ar. Senthil's Residence",
+      "location": "Ellis Nagar, Madurai",
+      "categories": [
+        "architecture"
+      ],
+      "cover": "exterior",
+      "gallery": [
+        "exterior",
+        "interior-1",
+        "interior-2",
+        "interior-3"
+      ],
+      "facts": {
+        "Site area": "1540 sq.ft",
+        "Site dimension": "22'0\" x 70'0\"",
+        "Ground floor built-up": "1540 sq.ft",
+        "First floor built-up": "1540 sq.ft",
+        "Second floor built-up": "400 sq.ft",
+        "Total built-up area": "3480 sq.ft",
+        "Plot facing": "East",
+        "Type": "Office, Parlour and Residence",
+        "Year of completion": "2019",
+        "No. of floors": "G+2"
+      }
+    },
+    {
+      "slug": "senthil-singampunari",
+      "title": "Mr. Senthil's Residence",
+      "location": "Singampunari",
+      "categories": [
+        "architecture"
+      ],
+      "cover": "exterior",
+      "gallery": [
+        "exterior"
+      ]
+    },
+    {
+      "slug": "mrs-meenal-residence",
+      "title": "Mrs. Meenal's Residence",
+      "location": "Madurai",
+      "categories": [
+        "architecture"
+      ],
+      "cover": "exterior",
+      "gallery": [
+        "exterior"
+      ]
+    },
+    {
+      "slug": "mr-shivalingam-residence",
+      "title": "Mr. Shivalingam's Residence",
+      "location": "Madurai",
+      "categories": [
+        "architecture"
+      ],
+      "cover": "exterior",
+      "gallery": [
+        "exterior"
+      ]
+    },
+    {
+      "slug": "mr-karthick-residence",
+      "title": "Mr. Karthick's Residence",
+      "location": "Ellis Nagar, Madurai",
+      "categories": [
+        "architecture"
+      ],
+      "cover": "exterior",
+      "gallery": [
+        "exterior"
+      ]
+    },
+    {
+      "slug": "mr-selvam-residence",
+      "title": "Mr. Selvam's Residence",
+      "location": "Dindigul",
+      "categories": [
+        "architecture",
+        "interior"
+      ],
+      "cover": "exterior",
+      "interior_cover": "interior-master-bedroom",
+      "gallery": [
+        "exterior",
+        "interior-master-bedroom",
+        "interior-office"
+      ]
+    },
+    {
+      "slug": "mr-vairamuthu-residence",
+      "title": "Mr. Vairamuthu's Residence",
+      "location": "Gladway, Madurai",
+      "categories": [
+        "architecture",
+        "interior"
+      ],
+      "cover": "exterior",
+      "interior_cover": "interior-living",
+      "gallery": [
+        "exterior",
+        "interior-living"
+      ]
+    },
+    {
+      "slug": "kalaimagal-papermill",
+      "title": "Kalaimagal Papermill",
+      "location": "Madurai",
+      "categories": [
+        "architecture"
+      ],
+      "cover": "exterior",
+      "gallery": [
+        "exterior"
+      ]
+    },
+    {
+      "slug": "k-narayanan-tower",
+      "title": "K Narayanan Tower",
+      "location": "Bypass, Madurai",
+      "categories": [
+        "architecture"
+      ],
+      "cover": "exterior",
+      "gallery": [
+        "exterior"
+      ]
+    },
+    {
+      "slug": "robust-fitness-studio",
+      "title": "Robust Fitness Studio",
+      "location": "Amman Sannathi, Madurai",
+      "categories": [
+        "interior"
+      ],
+      "cover": "interior",
+      "gallery": [
+        "interior"
+      ]
+    },
+    {
+      "slug": "lenin-advocate-office",
+      "title": "Mr. Lenin Advocate Office",
+      "location": "Madurai",
+      "categories": [
+        "design-build"
+      ],
+      "cover": "built",
+      "gallery": [
+        "built",
+        "design-render"
+      ],
+      "description": "The organization of space allows natural light streaming in from the south and west directions, which at the same time buffer the walls with well-planned storage."
+    },
+    {
+      "slug": "mr-vengatesh-residence",
+      "title": "Mr. Vengatesh's Residence",
+      "location": "Madurai",
+      "categories": [
+        "design-build",
+        "interior"
+      ],
+      "cover": "built",
+      "interior_cover": "interior",
+      "gallery": [
+        "built",
+        "design-render",
+        "interior"
+      ],
+      "description": "A contemporary style with traditional architectural home defines with proper use of plot, with enough natural light & ventilation."
+    },
+    {
+      "slug": "mr-ramanathan-residence",
+      "title": "Mr. Ramanathan's Residence",
+      "location": "Devakottai",
+      "categories": [
+        "design-build"
+      ],
+      "cover": "built",
+      "gallery": [
+        "built",
+        "design-render"
+      ],
+      "description": "A beautiful balcony heightens the enjoyment of the outdoors. Large, open-framed windows make the most of this exterior setting."
+    },
+    {
+      "slug": "mr-jeyanand-residence",
+      "title": "Mr. Jeyanand's Residence",
+      "location": "Melur",
+      "categories": [
+        "design-build"
+      ],
+      "cover": "built",
+      "gallery": [
+        "built",
+        "design-render"
+      ],
+      "description": "A contemporary style with enough natural light & ventilation & different geometrical exterior projections."
+    },
+    {
+      "slug": "mr-ravi-drug-house",
+      "title": "Mr. Ravi Drug House",
+      "location": "Kamarajar Nagar, Madurai",
+      "categories": [
+        "design-build"
+      ],
+      "cover": "built",
+      "gallery": [
+        "built",
+        "design-render"
+      ]
+    }
+  ]
+}
