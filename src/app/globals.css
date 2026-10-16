@@ -1,0 +1,664 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply text-ink-950 antialiased;
+  background-color: #ededed;
+  transition: color 0.3s ease;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+label,
+li {
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  white-space: normal;
+}
+
+::selection {
+  @apply bg-ink-900/10 text-ink-950;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-ink-900/20;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-ink-900/35;
+}
+
+/* Hide scrollbars on UI elements */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+:focus-visible {
+  outline: 2px solid theme("colors.ink.800");
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Ultra-Premium Liquid Glass Morphism System (Matches Reference Design)
+   ========================================================================== */
+.liquid-glass-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.36) 45%,
+    rgba(255, 255, 255, 0.52) 100%
+  );
+  backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 
+    0 24px 48px -12px rgba(15, 23, 42, 0.08),
+    0 8px 20px -6px rgba(15, 23, 42, 0.03),
+    0 1px 3px 0 rgba(0, 0, 0, 0.02),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95),
+    inset 1.5px 0 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.4),
+    inset -1.5px 0 2px 0 rgba(255, 255, 255, 0.5);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+}
+
+/* Prismatic chromatic dispersion corner reflection (top-left) */
+.liquid-glass-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(140, 205, 255, 0.5) 0%,
+    rgba(205, 165, 255, 0.32) 32%,
+    rgba(255, 225, 150, 0.22) 55%,
+    transparent 75%
+  );
+  border-top-left-radius: inherit;
+  pointer-events: none;
+  filter: blur(10px);
+  z-index: 1;
+  opacity: 0.85;
+  mix-blend-mode: soft-light;
+  transition: opacity 0.45s ease, filter 0.45s ease;
+}
+
+/* Warm specular glass rim highlight (right edge reflection) */
+.liquid-glass-card::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  right: -1px;
+  width: 3px;
+  height: 75px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 235, 195, 0.75) 30%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 235, 195, 0.75) 70%,
+    transparent 100%
+  );
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(1px);
+  z-index: 2;
+  opacity: 0.7;
+  transition: opacity 0.45s ease, height 0.45s ease;
+}
+
+/* Hover elevation with subtle lighting enhancement */
+.liquid-glass-card:hover {
+  transform: translateY(-4px) translateZ(0);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 32px 64px -14px rgba(15, 23, 42, 0.12),
+    0 14px 28px -6px rgba(15, 23, 42, 0.05),
+    0 2px 4px 0 rgba(0, 0, 0, 0.02),
+    inset 0 2px 3px 0 rgba(255, 255, 255, 1),
+    inset 2px 0 3px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.5),
+    inset -1.5px 0 2px 0 rgba(255, 255, 255, 0.6);
+}
+
+.liquid-glass-card:hover::before {
+  opacity: 1;
+  filter: blur(8px);
+}
+
+.liquid-glass-card:hover::after {
+  opacity: 0.95;
+  height: 95px;
+}
+
+/* Glossy top bevel reflection */
+.liquid-glass-bevel {
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 6.5rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.04) 60%,
+    transparent 100%
+  );
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  z-index: 1;
+}
+
+/* Dynamic sheen sweep on card hover */
+.liquid-sheen-sweep {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.15) 42%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(255, 255, 255, 0.15) 58%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: inherit;
+  z-index: 2;
+}
+
+.liquid-glass-card:hover .liquid-sheen-sweep {
+  transform: translateX(120%);
+}
+
+/* Continuous Liquid Water Shimmer / Wave Animation for JourneyLayers & Cards */
+@keyframes waterWaveMotion {
+  0% {
+    transform: translate3d(-100%, -100%, 0) rotate(35deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.65;
+  }
+  60% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(180%, 180%, 0) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+.liquid-water-wave {
+  pointer-events: none;
+  position: absolute;
+  inset: -60%;
+  background: linear-gradient(
+    115deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.25) 38%,
+    rgba(0, 229, 153, 0.45) 48%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(0, 229, 153, 0.45) 52%,
+    rgba(255, 255, 255, 0.25) 62%,
+    transparent 85%
+  );
+  animation: waterWaveMotion 4.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  z-index: 3;
+  will-change: transform, opacity;
+}
+
+/* Floating Glass Icon Capsule (Matches Reference Image) */
+.liquid-glass-icon,
+.liquid-glass-card span[class*="rounded-sm"],
+.liquid-glass-card div[class*="rounded-sm"]:not([class*="aspect-"]):not([class*="grid"]),
+.liquid-glass-card [class*="h-10"][class*="w-10"][class*="rounded"],
+.liquid-glass-card [class*="h-11"][class*="w-11"][class*="rounded"],
+.liquid-glass-card [class*="h-12"][class*="w-12"][class*="rounded"],
+.liquid-glass-card [class*="h-14"][class*="w-14"][class*="rounded"] {
+  border-radius: 14px !important;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(255, 255, 255, 0.45) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 
+    0 4px 14px -2px rgba(15, 23, 42, 0.07),
+    0 1px 3px 0 rgba(0, 0, 0, 0.03),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.06) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  color: #1e293b !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.liquid-glass-card:hover .liquid-glass-icon,
+.liquid-glass-card:hover span[class*="rounded-sm"],
+.liquid-glass-card:hover div[class*="rounded-sm"]:not([class*="aspect-"]):not([class*="grid"]),
+.liquid-glass-card:hover [class*="h-10"][class*="w-10"][class*="rounded"],
+.liquid-glass-card:hover [class*="h-11"][class*="w-11"][class*="rounded"],
+.liquid-glass-card:hover [class*="h-12"][class*="w-12"][class*="rounded"],
+.liquid-glass-card:hover [class*="h-14"][class*="w-14"][class*="rounded"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.68) 100%
+  ) !important;
+  border-color: #ffffff !important;
+  transform: scale(1.05) !important;
+  box-shadow: 
+    0 6px 18px -2px rgba(15, 23, 42, 0.12),
+    inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.08) !important;
+  color: #0f172a !important;
+}
+
+/* Translucent Frosted Dividers inside Cards (Matches Reference Image) */
+.liquid-glass-card [class*="border-b"]:not([class*="aspect-"]),
+.liquid-glass-card [class*="border-t"]:not([class*="aspect-"]) {
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  border-style: solid !important;
+  box-shadow: 0 1px 0 0 rgba(15, 23, 42, 0.03);
+}
+
+/* Automatic Text Readability and Contrast Optimization */
+.liquid-glass-card h1:not([class*="text-white"]),
+.liquid-glass-card h2:not([class*="text-white"]),
+.liquid-glass-card h3:not([class*="text-white"]),
+.liquid-glass-card h4:not([class*="text-white"]),
+.liquid-glass-card h5:not([class*="text-white"]),
+.liquid-glass-card h6:not([class*="text-white"]) {
+  color: #0f172a;
+  letter-spacing: -0.015em;
+}
+
+.liquid-glass-card p:not([class*="text-white"]) {
+  color: #334155;
+  line-height: 1.62;
+}
+
+.liquid-glass-card span.font-mono:not([class*="text-white"]),
+.liquid-glass-card [class*="font-mono"]:not([class*="text-white"]) {
+  color: #475569;
+}
+
+/* Dark Mode Liquid Glass Morphism Adaptations */
+.dark .liquid-glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.035) 45%,
+    rgba(255, 255, 255, 0.075) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.55),
+    0 8px 20px -6px rgba(0, 0, 0, 0.35),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.35),
+    inset 1.5px 0 2px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.1),
+    inset -1.5px 0 2px 0 rgba(255, 255, 255, 0.15);
+}
+
+.dark .liquid-glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 
+    0 32px 64px -14px rgba(0, 0, 0, 0.65),
+    inset 0 2px 3px 0 rgba(255, 255, 255, 0.5);
+}
+
+.dark .liquid-glass-card::before {
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(100, 180, 255, 0.25) 0%,
+    rgba(180, 120, 255, 0.18) 30%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.65;
+}
+
+.dark .liquid-glass-card::after {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+}
+
+.dark .liquid-glass-bevel {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.04) 40%,
+    transparent 100%
+  );
+}
+
+.dark .liquid-glass-icon,
+.dark .liquid-glass-card span[class*="rounded-sm"],
+.dark .liquid-glass-card div[class*="rounded-sm"]:not([class*="aspect-"]):not([class*="grid"]),
+.dark .liquid-glass-card [class*="h-10"][class*="w-10"][class*="rounded"],
+.dark .liquid-glass-card [class*="h-11"][class*="w-11"][class*="rounded"],
+.dark .liquid-glass-card [class*="h-12"][class*="w-12"][class*="rounded"],
+.dark .liquid-glass-card [class*="h-14"][class*="w-14"][class*="rounded"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  ) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 
+    0 4px 14px -2px rgba(0, 0, 0, 0.35),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.dark .liquid-glass-card:hover .liquid-glass-icon,
+.dark .liquid-glass-card:hover span[class*="rounded-sm"],
+.dark .liquid-glass-card:hover div[class*="rounded-sm"]:not([class*="aspect-"]):not([class*="grid"]),
+.dark .liquid-glass-card:hover [class*="h-10"][class*="w-10"][class*="rounded"],
+.dark .liquid-glass-card:hover [class*="h-11"][class*="w-11"][class*="rounded"],
+.dark .liquid-glass-card:hover [class*="h-12"][class*="w-12"][class*="rounded"],
+.dark .liquid-glass-card:hover [class*="h-14"][class*="w-14"][class*="rounded"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.12) 100%
+  ) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  color: #ffffff !important;
+}
+
+.dark .liquid-glass-card [class*="border-b"]:not([class*="aspect-"]),
+.dark .liquid-glass-card [class*="border-t"]:not([class*="aspect-"]) {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: none;
+}
+
+.dark .liquid-glass-card h1:not([class*="text-white"]),
+.dark .liquid-glass-card h2:not([class*="text-white"]),
+.dark .liquid-glass-card h3:not([class*="text-white"]),
+.dark .liquid-glass-card h4:not([class*="text-white"]),
+.dark .liquid-glass-card h5:not([class*="text-white"]),
+.dark .liquid-glass-card h6:not([class*="text-white"]) {
+  color: #ffffff;
+}
+
+.dark .liquid-glass-card p:not([class*="text-white"]) {
+  color: rgba(241, 245, 249, 0.85);
+}
+
+.dark .liquid-glass-card span.font-mono:not([class*="text-white"]),
+.dark .liquid-glass-card [class*="font-mono"]:not([class*="text-white"]) {
+  color: rgba(203, 213, 225, 0.85);
+}
+
+/* Beautiful Pill Language Toggle */
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.language-toggle button {
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #555555;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-toggle button:hover {
+  color: #111111;
+}
+
+.language-toggle button[aria-pressed="true"] {
+  background-color: #ffffff;
+  color: #111111;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 639px) {
+  .language-toggle {
+    padding: 2px;
+    gap: 1px;
+    flex-shrink: 0;
+  }
+  .language-toggle button {
+    padding: 3px 6px;
+    font-size: 10px;
+    min-height: 24px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
+/* ==========================================================================
+   Tamil Typography & Alignment Engine (Matches About Page Font & Size Across All Pages)
+   ========================================================================== */
+html[lang="ta"],
+html[lang="ta"] body {
+  font-family: 'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  letter-spacing: normal !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+html[lang="ta"] .font-serif,
+html[lang="ta"] [class*="font-serif"],
+html[lang="ta"] h1,
+html[lang="ta"] h2,
+html[lang="ta"] h3 {
+  font-family: 'Noto Serif Tamil', -apple-system, BlinkMacSystemFont, Georgia, serif !important;
+}
+
+html[lang="ta"] .font-sans,
+html[lang="ta"] [class*="font-sans"] {
+  font-family: 'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Tamil script does not have uppercase letters or extreme letter-spacing */
+html[lang="ta"] [class*="tracking-"] {
+  letter-spacing: normal !important;
+}
+
+html[lang="ta"] [class*="uppercase"] {
+  text-transform: none !important;
+}
+
+/* Responsive heading scaling for Tamil typography with comfortable line-height */
+html[lang="ta"] h1 {
+  line-height: 1.35 !important;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+html[lang="ta"] h2 {
+  line-height: 1.35 !important;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+html[lang="ta"] h3 {
+  line-height: 1.4 !important;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+html[lang="ta"] h4,
+html[lang="ta"] h5,
+html[lang="ta"] h6 {
+  line-height: 1.4 !important;
+  overflow-wrap: break-word;
+}
+
+/* Paragraph reading comfort in Tamil */
+html[lang="ta"] p {
+  line-height: 1.6;
+}
+
+/* Keep pills, buttons and badges vertically aligned in Tamil without text clipping */
+html[lang="ta"] button,
+html[lang="ta"] a[class*="rounded-full"],
+html[lang="ta"] span[class*="rounded-full"],
+html[lang="ta"] header span {
+  letter-spacing: normal;
+}
+
+@media (max-width: 767px) {
+  html[lang="ta"] h1 {
+    font-size: clamp(20px, 5.5vw, 26px);
+    line-height: 1.35;
+  }
+  html[lang="ta"] h2 {
+    font-size: clamp(18px, 4.5vw, 23px);
+    line-height: 1.35;
+  }
+  html[lang="ta"] h3 {
+    font-size: clamp(15px, 3.8vw, 19px);
+    line-height: 1.4;
+  }
+  html[lang="ta"] p {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+}
+
+/* Ensure desktop navbar links remain in single line */
+html[lang="ta"] header nav a {
+  white-space: nowrap;
+}
+
+/* Ensure underline decoration has enough offset in Tamil */
+html[lang="ta"] .underline {
+  text-underline-offset: 8px;
+}
+
+/* Language Toggle specific sizing inside pills */
+.language-toggle button {
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+/* 3D Floating Architecture Image Keyframe */
+@keyframes float3DUpDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-floating-3d {
+  animation: float3DUpDown 3.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes studioPhotoPan { from { transform: scale(1); } to { transform: scale(1.08); } }
+.studio-photo-motion { animation: studioPhotoPan 12s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .studio-photo-motion { animation: none; } }
+
+/* Continuous Automated Scroll Marquee for Built Spaces */
+@keyframes marqueeScrollContinuous {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-continuous {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollContinuous 34s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-continuous:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-continuous {
+    animation-play-state: paused;
+  }
+}
+
