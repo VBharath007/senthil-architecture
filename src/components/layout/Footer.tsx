@@ -171,13 +171,9 @@ export function Footer() {
 
         </div>
 
-        {/* Bottom Copyright & Designed with Purpose Bar */}
+        {/* Bottom Copyright Bar */}
         <div className="mt-8 pt-5 border-t border-[#d8cdbf] dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#635a50] dark:text-[#a89d8f] relative z-10">
           <p>© <Localized>{new Date().getFullYear()}</Localized> <Localized>{COMPANY.name}. All rights reserved.</Localized></p>
-          <p className="font-serif italic tracking-wide text-[#635a50] dark:text-[#b8ad9f] flex items-center gap-2">
-            <span className="w-8 border-t border-[#b8ab9a] dark:border-white/20" />
-            <Localized>Designed with Purpose</Localized>
-          </p>
         </div>
       </Container>
     </footer>
