@@ -21,7 +21,7 @@ export function Reveal({ children, delay = 0, className = "", width = "fit-conte
   return (
     <div style={{ position: "relative", width, overflow: "hidden" }} className={className}>
       <motion.div
-        className={className.includes("flex") ? "flex flex-wrap items-center gap-4" : undefined}
+        className={`${width === "100%" ? "w-full" : ""} ${className.includes("h-full") ? "h-full" : ""} ${className.includes("flex") ? "flex flex-wrap items-center gap-4" : ""}`}
         variants={{
           hidden: { opacity: prefersReducedMotion ? 0 : 0, y: prefersReducedMotion ? 0 : 12 },
           visible: { opacity: 1, y: 0 },

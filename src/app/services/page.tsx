@@ -284,7 +284,7 @@ export default function ServicesPage() {
 
                         {/* Visual Step Illustration Card */}
                         <motion.div
-                          className={`hidden md:block md:w-1/2 ${isEven ? 'md:pl-16 lg:pl-24' : 'md:pr-16 lg:pr-24'}`}
+                          className={`hidden md:block md:w-1/2 ${isEven ? 'md:pr-10 lg:pr-16' : 'md:pl-10 lg:pl-16'}`}
                           initial={{ opacity: 0, x: isEven ? 40 : -40 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
@@ -319,7 +319,7 @@ export default function ServicesPage() {
 
                         {/* Content Card with Alternating Green / Red Accents */}
                         <motion.div
-                          className={`w-full md:w-1/2 ${isEven ? 'md:pr-16 lg:pr-24' : 'md:pl-16 lg:pl-24'}`}
+                          className={`w-full md:w-1/2 ${isEven ? 'md:pl-10 lg:pl-16' : 'md:pr-10 lg:pr-16'}`}
                           initial={{ opacity: 0, x: isEven ? -40 : 40 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
@@ -493,14 +493,14 @@ export default function ServicesPage() {
                 ].map((item, idx) => {
                   const isGreen = idx % 2 === 0;
                   return (
-                    <Reveal key={item.title} delay={idx * 0.08}>
-                      <Link href={item.link} className="block group h-full">
-                        <div className={`liquid-glass-card rounded-2xl p-3 relative overflow-hidden group shadow-sm transition-all duration-500 hover:-translate-y-1 h-full flex flex-col ${
+                    <Reveal key={item.title} delay={idx * 0.08} width="100%" className="h-full w-full">
+                      <Link href={item.link} className="block group h-full w-full">
+                        <div className={`liquid-glass-card rounded-2xl p-3 relative overflow-hidden group shadow-sm transition-all duration-500 hover:-translate-y-1 h-full w-full flex flex-col justify-between ${
                           isGreen ? "border-nature-500/20" : "border-brand-500/20"
                         }`}>
                           <div className="liquid-sheen-sweep" />
                           <div className="liquid-glass-bevel" />
-                          <div className="relative z-10 aspect-[4/3] w-full rounded-xl overflow-hidden mb-3.5 bg-black/5">
+                          <div className="relative z-10 aspect-[4/3] w-full rounded-xl overflow-hidden mb-3.5 bg-black/5 shrink-0">
                             <Image
                               src={item.image}
                               alt={item.title}
@@ -516,7 +516,7 @@ export default function ServicesPage() {
                           </div>
                           <div className="relative z-10 px-1 pb-1 flex-1 flex flex-col justify-between">
                             <div>
-                              <h3 className={`font-serif text-base sm:text-lg font-medium text-ink-950 dark:text-white transition-colors ${
+                              <h3 className={`font-serif text-base sm:text-lg font-medium text-ink-950 dark:text-white transition-colors line-clamp-2 min-h-[3rem] flex items-center ${
                                 isGreen ? "group-hover:text-nature-700" : "group-hover:text-brand-600"
                               }`}>
                                 <Localized>{item.title}</Localized>
@@ -525,7 +525,7 @@ export default function ServicesPage() {
                                 <Localized>{item.location}</Localized>
                               </p>
                             </div>
-                            <div className={`mt-3 flex items-center gap-1.5 text-xs font-semibold group-hover:translate-x-1 transition-transform ${
+                            <div className={`mt-4 flex items-center gap-1.5 text-xs font-semibold group-hover:translate-x-1 transition-transform ${
                               isGreen ? "text-nature-700 dark:text-nature-400" : "text-brand-600 dark:text-brand-400"
                             }`}>
                               <Localized>View Details</Localized> <ArrowRight className="h-3 w-3" />
